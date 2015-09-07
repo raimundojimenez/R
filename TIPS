@@ -1,0 +1,8 @@
+getwd() : Obtener el directorio
+ls()
+setwd("~/R")
+dir()
+
+read.csv("mydata.csv")
+File -> ChangeDir (cambiar de directorio de trabajo)
+File -> New Script para escribir nuevo código
