@@ -1,0 +1,12 @@
+> paste("Hello", "world", sep=" ")
+[1] "Hello world"
+
+> x <- c("Hello", "World")
+> x
+[1] "Hello" "World"
+> paste(x, collapse="--")
+[1] "Hello--World"
+
+> paste(x, "and some more", sep="|-|", collapse="--")
+[1] "Hello|-|and some more--World|-|and some more"
+
