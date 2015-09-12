@@ -1,0 +1,129 @@
+| When you are at the R prompt (>):
+| -- Typing skip() allows you to skip the current question.
+| -- Typing play() lets you experiment with R on your own; swirl will ignore what you do...
+| -- UNTIL you type nxt() which will regain swirl's attention.
+| -- Typing bye() causes swirl to exit. Your progress will be saved.
+| -- Typing main() returns you to swirl's main menu.
+| -- Typing info() displays these options again.
+
+| If at any point you'd like more information on a particular topic related to R, you can type help.start() at the prompt, which will open a menu of resources (either within RStudio
+| or your default web browser, depending on your setup). Alternatively, a simple web search often yields the answer you're looking for.
+
+| Anytime you have questions about a particular function, you can access R's built-in help files via the `?` command. For example, if you want more information on the c() function,
+| type ?c without the parentheses that normally follow a function name. Give it a try.
+
+The output type is determined from the highest type of the components in the hierarchy NULL < raw < logical < integer < double < complex < character < list < expression. Pairlists are treated as lists, but non-vector components (such names and calls) are treated as one-element lists which cannot be unlisted even if recursive = TRUE.
+
+getwd()
+ls() # memoria
+list.files()
+dir()
+?list.files
+args(list.files)
+dir.create("testdir")
+setwd("testdir")
+file.create("mytest.R")
+file.exists("mytest.R")
+file.info("mytest.R")
+file.info("mytest.R")$mode
+file.rename("mytest.R", "mytest2.R")
+file.copy("mytest2.R","mytest3.R")
+file.path("mytest3.R")
+
+| You can use file.path to construct file and directory paths that are independent of the operating system your R code is
+| running on. Pass 'folder1' and 'folder2' as arguments to file.path to make a platform-independent pathname.
+
+> file.path("folder1", "folder2")
+[1] "folder1/folder2"
+
+?dir.create
+dir.create(file.path("testdir2", "testdir3"), recursive=TRUE)
+
+unlink("testdir2", recursive = TRUE)
+
+### Sequence of numbers
+
+1:10
+pi:10
+15:1
+?`:`
+seq(1,20)
+seq(0, 10, by=0.5)
+seq(5, 10, length=30)
+my_seq <- seq(5, 10, length=30)
+length(my_seq)
+1:length(my_seq)
+seq(along.with = my_seq)
+seq_along(my_seq)
+rep(0, times=40)
+rep(c(0, 1, 2), times = 10)
+rep(c(0, 1, 2), each = 10)
+
+### Vectors
+
+| In previous lessons, we dealt entirely with numeric vectors, which are one type of atomic vector. Other types of atomic
+| vectors include logical, character, integer, and complex. In this lesson, we'll take a closer look at logical and
+| character vectors.
+
+num_vect <- c(0.5, 55, -10, 6)
+tf <- num_vect < 1
+
+| If we have two logical expressions, A and B, we can ask whether at least one is TRUE with A | B (logical 'or' a.k.a.
+| 'union') or whether they are both TRUE with A & B (logical 'and' a.k.a. 'intersection'). Lastly, !A is the negation of
+| A and is TRUE when A is FALSE and vice versa.
+
+my_char <- c("My", "name", "is")
+paste(my_char, collapse = " ")
+my_name <- c(my_char, "Ray")
+paste("Hello", "world!", sep = " ")
+
+> paste(c(1:3), c("X", "Y", "Z"), sep="")
+[1] "1X" "2Y" "3Z"
+
+| Vector recycling! Try paste(LETTERS, 1:4, sep = "-"), where LETTERS is a predefined variable in R containing a
+| character vector of all 26 letters in the English alphabet.
+
+> paste(LETTERS, 1:4, sep = "-")
+ [1] "A-1" "B-2" "C-3" "D-4" "E-1" "F-2" "G-3" "H-4" "I-1" "J-2" "K-3" "L-4" "M-1" "N-2" "O-3" "P-4" "Q-1" "R-2" "S-3"
+[20] "T-4" "U-1" "V-2" "W-3" "X-4" "Y-1" "Z-2"
+
+### Missing values
+
+x <- c(44, NA, 5, NA)
+
+| To make things a little more interesting, lets create a vector containing 1000 draws from a standard normal
+| distribution with y <- rnorm(1000).
+
+> y <- rnorm(1000)
+
+| Next, let's create a vector containing 1000 NAs with z <- rep(NA, 1000).
+
+> z <- rep(NA, 1000)
+
+| Finally, let's select 100 elements at random from these 2000 values (combining y and z) such that we don't know how
+| many NAs we'll wind up with or what positions they'll occupy in our final vector -- my_data <- sample(c(y, z), 100).
+
+> my_data <- sample(c(y, z), 100)
+
+| Let's first ask the question of where our NAs are located in our data. The is.na() function tells us whether each
+| element of a vector is NA. Call is.na() on my_data and assign the result to my_na.
+
+> my_na <- is.na(my_data)
+
+| So, back to the task at hand. Now that we have a vector, my_na, that has a TRUE for every NA and FALSE for every
+| numeric value, we can compute the total number of NAs in our data.
+
+| The trick is to recognize that underneath the surface, R represents TRUE as the number 1 and FALSE as the number 0.
+| Therefore, if we take the sum of a bunch of TRUEs and FALSEs, we get the total number of TRUEs.
+
+| Let's give that a try here. Call the sum() function on my_na to count the total number of TRUEs in my_na, and thus the
+| total number of NAs in my_data. Don't assign the result to a new variable.
+
+> sum(my_na)
+[1] 51
+
+INf - Inf --> NaN
+0 / 0 --> NaN
+
+# Subsetting Vectors
+
