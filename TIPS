@@ -17,4 +17,4 @@ Ficheros con formato : "xxx.csv"
           provdata <- read.csv(cfile)
           mydata <- c(mydata, provdata[pollutant])
      }
-     return (round(mean(mydata, na.rm=TRUE), digits=3))
+     return (round(mean(mydata[pollutant], na.rm=TRUE), digits=3))
