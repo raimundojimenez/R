@@ -5,6 +5,19 @@ swirl()
 
 install_from_swirl("R Programming")
 
+sudo dnf install R
+sudo dnf install R-devel
+sudo dnf install libxml2-devel
+sudo dnf install libcurl-devel
+sudo dnf groupinstall "C Development Tools and Libraries"
+
+Installing package into ‘/usr/lib64/R/library’
+(as ‘lib’ is unspecified)
+also installing the dependencies ‘memoise’, ‘stringi’, ‘magrittr’, ‘crayon’, ‘jsonlite’, 
+’mime’, ‘curl’, ‘R6’, ‘bitops’, ‘stringr’, ‘testthat’, ‘httr’, ‘yaml’, ‘RCurl’, ‘digest’
+
+
+
 | When you are at the R prompt (>):
 | -- Typing skip() allows you to skip the current question.
 | -- Typing play() lets you experiment with R on your own; swirl will ignore what you do...
