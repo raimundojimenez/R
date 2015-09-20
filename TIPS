@@ -6,3 +6,15 @@ dir()
 read.csv("mydata.csv")
 File -> ChangeDir (cambiar de directorio de trabajo)
 File -> New Script para escribir nuevo código
+
+Ficheros con formato : "xxx.csv"
+1) paste(gsub(" ", "0", format(i, width=3)), ".csv", sep="")
+2) paste(sprintf("%03d", as.numeric(i)), ".csv", sep="")
+
+    mydata <- c()
+     for (i in id) {
+          cfile <- file.path(directory, paste(gsub(" ", "0", format(i, width=3)), ".csv", sep=""))
+          provdata <- read.csv(cfile)
+          mydata <- c(mydata, provdata[pollutant])
+     }
+     return (round(mean(mydata, na.rm=TRUE), digits=3))
