@@ -20,3 +20,15 @@ knitr::opts_chunk$set(echo = TRUE)
 * Subset R objects using the "[", "[[", and "$" operators and logical vectors  
 * Describe the explicit coercion feature of R  
 * Remove missing (NA) values from a vector  
+
+- Problema: todos los objetos deben residir en memoria (problemas con Big Data)
+
+* character
+* numeric (real numbers)
+* integer
+* complex
+* logical (True/False)  
+
+: The most basic object is a vector
+- Los vectores sólo pueden contener objetos de la misma clase: vector()
+- PERO las listas pueden contener objetos de clases distintas
