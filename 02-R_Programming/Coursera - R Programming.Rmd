@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # R - Learning Objectives
 
-## 1
+## Week 1
 
 * Download and install the swirl package for R  
 * Describe the history of the S and R programming lectures  
@@ -29,6 +29,23 @@ knitr::opts_chunk$set(echo = TRUE)
 * complex
 * logical (True/False)  
 
-: The most basic object is a vector
-- Los vectores sólo pueden contener objetos de la misma clase: vector()
-- PERO las listas pueden contener objetos de clases distintas
+: The most basic object is a vector  
+- Los vectores sólo pueden contener objetos de la misma clase: vector()  
+- PERO las listas pueden contener objetos de clases distintas  
+
+## Week 2
+
+* Write an if-else expression  
+* Write a for loop, a while loop, and a repeat loop  
+* Define a function in R and specify its return value [see Functions Part 1 and Part 2]  
+* Describe how R binds a value to a symbol via the search list  
+* Define what lexical scoping is with respect to how the value of free variables are resolved in R  
+* Describe the difference between lexical scoping and dynamic scoping rules  
+* Convert a character string representing a date/time into an R datetime object. [see Dates and Times]  
+
+## Week 3
+
+* Define an anonymous function and describe its use in loop functions [see lapply]
+* Describe how to start the R debugger for an arbitrary R function
+* Describe what the traceback() function does and what is the function call stack
+
